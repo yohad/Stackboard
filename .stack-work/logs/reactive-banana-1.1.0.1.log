@@ -1,0 +1,28 @@
+Configuring reactive-banana-1.1.0.1...
+Building reactive-banana-1.1.0.1...
+Preprocessing library reactive-banana-1.1.0.1...
+[ 1 of 22] Compiling Reactive.Banana.Prim.Util ( src\Reactive\Banana\Prim\Util.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Util.o )
+[ 2 of 22] Compiling Reactive.Banana.Prim.OrderedBag ( src\Reactive\Banana\Prim\OrderedBag.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\OrderedBag.o )
+[ 3 of 22] Compiling Reactive.Banana.Prim.Graph ( src\Reactive\Banana\Prim\Graph.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Graph.o )
+[ 4 of 22] Compiling Reactive.Banana.Prim.Cached ( src\Reactive\Banana\Prim\Cached.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Cached.o )
+[ 5 of 22] Compiling Reactive.Banana.Model ( src\Reactive\Banana\Model.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Model.o )
+[ 6 of 22] Compiling Control.Monad.Trans.ReaderWriterIO ( src\Control\Monad\Trans\ReaderWriterIO.hs, .stack-work\dist\ca59d0ab\build\Control\Monad\Trans\ReaderWriterIO.o )
+[ 7 of 22] Compiling Control.Monad.Trans.RWSIO ( src\Control\Monad\Trans\RWSIO.hs, .stack-work\dist\ca59d0ab\build\Control\Monad\Trans\RWSIO.o )
+[ 8 of 22] Compiling Reactive.Banana.Prim.Types ( src\Reactive\Banana\Prim\Types.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Types.o )
+[ 9 of 22] Compiling Reactive.Banana.Prim.Dependencies ( src\Reactive\Banana\Prim\Dependencies.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Dependencies.o )
+[10 of 22] Compiling Reactive.Banana.Prim.Plumbing ( src\Reactive\Banana\Prim\Plumbing.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Plumbing.o )
+[11 of 22] Compiling Reactive.Banana.Prim.Combinators ( src\Reactive\Banana\Prim\Combinators.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Combinators.o )
+[12 of 22] Compiling Reactive.Banana.Prim.Evaluation ( src\Reactive\Banana\Prim\Evaluation.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Evaluation.o )
+[13 of 22] Compiling Reactive.Banana.Prim.IO ( src\Reactive\Banana\Prim\IO.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\IO.o )
+[14 of 22] Compiling Reactive.Banana.Prim.Compile ( src\Reactive\Banana\Prim\Compile.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Compile.o )
+[15 of 22] Compiling Reactive.Banana.Prim ( src\Reactive\Banana\Prim.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim.o )
+[16 of 22] Compiling Reactive.Banana.Prim.Test ( src\Reactive\Banana\Prim\Test.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Prim\Test.o )
+[17 of 22] Compiling Control.Event.Handler ( src\Control\Event\Handler.hs, .stack-work\dist\ca59d0ab\build\Control\Event\Handler.o )
+[18 of 22] Compiling Reactive.Banana.Internal.Combinators ( src\Reactive\Banana\Internal\Combinators.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Internal\Combinators.o )
+[19 of 22] Compiling Reactive.Banana.Types ( src\Reactive\Banana\Types.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Types.o )
+[20 of 22] Compiling Reactive.Banana.Combinators ( src\Reactive\Banana\Combinators.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Combinators.o )
+[21 of 22] Compiling Reactive.Banana.Frameworks ( src\Reactive\Banana\Frameworks.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana\Frameworks.o )
+[22 of 22] Compiling Reactive.Banana  ( src\Reactive\Banana.hs, .stack-work\dist\ca59d0ab\build\Reactive\Banana.o )
+Installing library in
+D:\Haskell\Stackboard\.stack-work\install\05480a1e\lib\x86_64-windows-ghc-8.0.2\reactive-banana-1.1.0.1-rai7Y4OUCbHche7SOt8wj
+Registering reactive-banana-1.1.0.1...
