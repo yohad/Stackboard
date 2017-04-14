@@ -4,27 +4,27 @@ import Reactive.Banana
 import Reactive.Banana.Frameworks
 import System.Clipboard
 import Data.Maybe(fromJust)
+import Control.Exception
 
 main :: IO ()
 main = do
     sources <- (,) <$> newAddHandler <*> newAddHandler
     network <- setupNetwork sources
     actuate network
-    -- snd (snd sources) ["True"]
-    -- snd (snd sources) ["True"]
     s <- getClipboardString
     loop s sources
 
--- loop :: String -> IO ()
 loop s (epop, epush) = do
-    c <- getClipboardString
-    if s /= c then
-        snd epush [fromJust c]
-    else
-        loop s (epop, epush)
+    c <- try getClipboardString :: IO (Either SomeException (Maybe String))
+    case c of
+        Left err -> loop s (epop, epush)
+        Right clip ->
+            if s /= clip then do
+                snd epush [fromJust clip]
+                loop clip (epop, epush)
+            else
+                loop s (epop, epush)
 
--- setupNetwork :: (AddHandler Char, AddHandler String) ->
---                 IO EventNetwork
 setupNetwork (epop, epush) = compile $ do
     ePop <- fromAddHandler $ fst epop
     ePush <- fromAddHandler $ fst epush
