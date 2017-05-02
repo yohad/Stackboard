@@ -34,23 +34,42 @@ clipPop epop = do
     getLine >> snd epop Nothing
     clipPop epop
 
-stackController :: Maybe String -> [String] -> [String]
-stackController Nothing ls = safeTail ls
-stackController (Just cs) ls = cs : ls
+stackController :: Maybe String -> IO [String] -> IO [String]
+stackController Nothing ls = do
+    ss <- ls
+    case safeHead ss of
+        Nothing -> setClipboardString ""
+        Just xs -> setClipboardString xs
+    return $ safeTail ss
+stackController (Just cs) ls = do
+    ss <- ls
+    return $ cs : ss
+
+safeHead :: [a] -> Maybe a
+safeHead [] = Nothing
+safeHead (x:xs) = Just x
 
 safeTail :: [a] -> [a]
 safeTail [] = []
-safeTail xs = tail xs
+safeTail (x:xs) = xs
 
 loop s (epop, epush) = do
     forkIO $ clipPop epop
     clipChange epush
 
+ioList :: IO [a]
+ioList = return []
+
+ioPrint :: IO [String] -> IO ()
+ioPrint ls = do
+    ss <- ls
+    print ss
+
 setupNetwork (epop, epush) = compile $ do
     ePop <- fromAddHandler $ fst epop
     ePush <- fromAddHandler $ fst epush
 
-    bStack <- accumB [] $ stackController <$> unionWith (++) ePush ePop
+    bStack <- accumB ioList $ stackController <$> unionWith const ePush ePop
     eStack <- changes bStack
 
-    reactimate' $ fmap print <$> eStack
+    reactimate' $ fmap ioPrint <$> eStack
