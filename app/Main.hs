@@ -14,12 +14,11 @@ main = do
     s <- getClipboardString
     loop s sources
 
--- clipChange :: IO ()
 clipChange epush = do
     s <- getClipboardString
     listen s epush
     where
-        listen s ee= do
+        listen s ee = do
             c <- try getClipboardString :: IO (Either SomeException (Maybe String))
             case c of
                 Left err -> listen s ee
@@ -28,7 +27,7 @@ clipChange epush = do
                         snd ee clip
                         listen clip ee
                     else
-                        listen s ee
+                        listen clip ee
 
 clipPop epop = do
     getLine >> snd epop Nothing
@@ -37,13 +36,18 @@ clipPop epop = do
 stackController :: Maybe String -> IO [String] -> IO [String]
 stackController Nothing ls = do
     ss <- ls
-    case safeHead ss of
+    case safeHead $ safeTail ss of
         Nothing -> setClipboardString ""
         Just xs -> setClipboardString xs
     return $ safeTail ss
 stackController (Just cs) ls = do
     ss <- ls
-    return $ cs : ss
+    if Just cs == safeHead ss then
+        ls
+    else
+        case cs of
+            "" -> return ss
+            _  -> return $ cs : ss
 
 safeHead :: [a] -> Maybe a
 safeHead [] = Nothing
@@ -69,7 +73,7 @@ setupNetwork (epop, epush) = compile $ do
     ePop <- fromAddHandler $ fst epop
     ePush <- fromAddHandler $ fst epush
 
-    bStack <- accumB ioList $ stackController <$> unionWith const ePush ePop
+    bStack <- accumB ioList $ stackController <$> unionWith (\x y -> y) ePush ePop
     eStack <- changes bStack
 
     reactimate' $ fmap ioPrint <$> eStack
